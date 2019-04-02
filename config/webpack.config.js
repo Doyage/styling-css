@@ -106,6 +106,14 @@ module.exports = function(webpackEnv) {
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
       },
+      {
+        // Options for PostCSS as we reference these options twice
+        // Adds vendor prefixing based on your specified browser support in
+        // package.json
+        loader: require.resolve('sass-loader'),
+        options: {
+        },
+      },
     ].filter(Boolean);
     if (preProcessor) {
       loaders.push({
